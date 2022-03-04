@@ -143,3 +143,9 @@ body {
 		width: 70%;
 	}
 }
+@media (max-width: 463px) {
+	.calculator {
+		padding: 10px 0px;
+		align-content: end;
+	}
+}
