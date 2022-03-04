@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="styles.css" />
+
+		<title>Frontend Mentor | Calculator app</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="calculator">
+			<div class="theme-part">
+				<h1 class="title fontJs">Calc</h1>
+				<div class="theme-mode">
+					<h1 class="theme-title fontJs">Theme</h1>
+					<div class="theme">
+						<div class="dot-container"><div class="red-dot"></div></div>
+
+						<div class="theme-nums">
+							<h3 class="fontJs">1</h3>
+							<h3 class="fontJs">2</h3>
+							<h3 class="fontJs">3</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="calculator--output">
+				<h1 class="display fontJs">0</h1>
+			</div>
+			<div class="calculator--input">
+				<button value="7" class="btn-num btn-num-opt fontJs">7</button>
+				<button value="8" class="btn-num btn-num-opt fontJs">8</button>
+				<button value="9" class="btn-num btn-num-opt fontJs">9</button>
+				<button class="text-btn del fontJs">Del</button>
+				<button value="4" class="btn-num btn-num-opt fontJs">4</button>
+				<button value="5" class="btn-num btn-num-opt fontJs">5</button>
+				<button value="6" class="btn-num btn-num-opt fontJs">6</button>
+				<button value="+" class="btn-opt fontJs btn-num-opt">+</button>
+				<button value="1" class="btn-num btn-num-opt fontJs">1</button>
+				<button value="2" class="btn-num btn-num-opt fontJs">2</button>
+				<button value="3" class="btn-num btn-num-opt fontJs">3</button>
+				<button value="-" class="btn-opt fontJs btn-num-opt">-</button>
+				<button value="." class="btn-num btn-num-opt fontJs">.</button>
+				<button value="0" class="btn-num btn-num-opt fontJs">0</button>
+				<button value="/" class="btn-opt fontJs btn-num-opt">/</button>
+				<button value="*" class="btn-opt fontJs btn-num-opt">x</button>
+				<button class="span-2 text-btn reset fontJs">RESET</button>
+				<button class="span-2 text-btn equals fontJs">=</button>
+			</div>
+		</div>
+		<script src="script.js"></script>
+		<script src="theme&animation.js"></script>
+	</body>
+</html>
