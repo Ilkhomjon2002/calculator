@@ -14,39 +14,61 @@ reset.addEventListener("click", () => {
 });
 
 btnNum.forEach((btn) => {
-	btn.addEventListener("click", appendNum.bind(null, btn));
+	btn.addEventListener("click", appendNum);
 });
 
 btnOpt.forEach((btn) => {
-	btn.addEventListener("click", chooseOperator.bind(null, btn));
+	btn.addEventListener("click", chooseOperator);
 });
+function chooseOperator() {
+	if (!currentNum) return;
+	if (currentNum && !prevNum) {
+		prevNum = currentNum;
+		currentNum = "";
+		operator = this.value;
+		updateDisplay();
+	} else if (currentNum && prevNum && !operator) {
+		prevNum = currentNum;
+		currentNum = "";
+		operator = this.value;
+		updateDisplay();
+	} else {
+		compute();
+		prevNum = "";
+		operator = this.value;
+	}
+}
 del.addEventListener("click", deleteDigit);
 equals.addEventListener("click", compute);
 
 //functions
 
 function compute() {
-	let result;
-
-	if (isNaN(prevNum) || isNaN(currentNum)) return;
-	if (operator) {
-		result = eval(`${prevNum}${operator}${currentNum}`);
+	if (prevNum && currentNum && operator) {
+		currentNum = eval(`${prevNum}${operator}${currentNum}`);
 	}
 
-	currentNum = result;
 	updateDisplay();
 }
 
-function appendNum(num) {
-	if (num.value === "." && currentNum.includes(".")) return;
-	if (currentNum.length === 0 && num.value.startsWith(".")) {
-		currentNum = "0" + num.value;
+function appendNum() {
+	if (this.value === "." && currentNum.includes(".")) return;
+	if (currentNum && this.value.startsWith(".")) {
+		currentNum = "0" + this.value;
 		updateDisplay();
 		return;
 	}
-	currentNum = currentNum + num.value;
-
-	updateDisplay();
+	if (!operator) {
+		currentNum = currentNum + this.value;
+		updateDisplay();
+	} else if (operator && currentNum && !prevNum) {
+		prevNum = currentNum;
+		currentNum = this.value;
+		updateDisplay();
+	} else {
+		currentNum = currentNum + this.value;
+		updateDisplay();
+	}
 }
 
 function updateDisplay() {
@@ -60,13 +82,7 @@ function resetAll() {
 	updateDisplay();
 	display.textContent = "0";
 }
-function chooseOperator(btn) {
-	prevNum = currentNum;
-	currentNum = "";
-	operator = btn.value;
 
-	updateDisplay();
-}
 function deleteDigit() {
 	currentNum = currentNum.toString().slice(0, -1);
 

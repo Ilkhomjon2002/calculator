@@ -101,7 +101,7 @@ redDot.addEventListener("click", () => {
 
 function changeTheme() {
 	//----------BODY
-	console.log(1);
+
 	body.style.backgroundColor = themeColor[i].bodyColor;
 
 	//-------------output and input
@@ -118,25 +118,18 @@ function changeTheme() {
 		btn.style.backgroundColor = themeColor[i].buttons;
 		btn.style.boxShadow = `inset 0px -4px 0px 0px ${boxShadows[i].numericalButton}`;
 		btn.style.color = themeColor[i].buttonsFontColor;
-		btn.addEventListener("mouseover", hoverAction.bind(null, btn, i));
-		btn.addEventListener("mouseleave", changeTheme);
 	});
 
 	btnOperators.forEach((btn) => {
 		btn.style.backgroundColor = themeColor[i].btnOperator;
 		btn.style.boxShadow = `inset 0px -4px 0px 0px ${boxShadows[i].textButton}`;
-		btn.addEventListener("mouseover", hoverAction.bind(null, btn, i));
-		btn.addEventListener("mouseleave", changeTheme);
+
 		btn.style.color = themeColor[i].textBtnFontColor;
 	});
 
 	equalsTheme.style.backgroundColor = themeColor[i].equals;
 	equalsTheme.style.boxShadow = `inset 0px -4px 0px 0px ${boxShadows[i].equalsButton}`;
-	equalsTheme.addEventListener(
-		"mouseover",
-		hoverAction.bind(null, equalsTheme, i)
-	);
-	equalsTheme.addEventListener("mouseleave", changeTheme);
+
 	//----------Red Dot
 	redDot.style.backgroundColor = themeColor[i].red_dot;
 	redDot.addEventListener("mouseover", hoverAction.bind(null, redDot, i));
